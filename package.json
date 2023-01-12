@@ -1,0 +1,33 @@
+{
+  "name": "akshay-react-live-couse",
+  "version": "1.0.0",
+  "description": "This is my app",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lawakesh23/Namaste-React.git"
+  },
+  "author": "lawakesh patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lawakesh23/Namaste-React/issues"
+  },
+  "homepage": "https://github.com/lawakesh23/Namaste-React#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.18.6",
+    "parcel": "^2.8.2",
+    "process": "^0.11.10"
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
+}
