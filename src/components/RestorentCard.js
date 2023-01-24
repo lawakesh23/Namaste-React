@@ -13,7 +13,7 @@ const RestorentCard=({ name, id, cuisines, area, cloudinaryImageId, costForTwoSt
                  <p className="text-secondary">{cuisines.join(", ")}</p>
                  <div className="card-rating-section">
                     <div className="star-rating">
-                        <span>* </span>
+                        <span>★ </span>
                         <div> {avgRating} </div>
                     </div>
                     <div>|</div>

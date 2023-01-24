@@ -195,3 +195,29 @@ a:hover{
     /* margin: 10px 300px 10px 300px; */
     border-radius: 10px;
 }
+
+
+/* Footer Style */
+
+.f-list-none{
+    list-style-type: none;
+}
+
+
+.bg-light-secondary{
+    background-color: #F8F9F0;
+}
+
+.Help-bg{
+    background-color: #37718e
+}
+
+.profile-text{
+    font-size: 45px;
+    color: #f8761b;
+    font-weight: 600;
+}
+
+.bg-theme{
+    background: #f8761b;
+}

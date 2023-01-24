@@ -11,6 +11,7 @@ import Offers from './components/Offers.js'
 import Cart from './components/Cart.js'
 import RestorentMenu from './components/RestorentMenu.js'
 import Login from './components/Login.js'
+import Profile from './components/ProfileClassBased.js'
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 
 const AppLayout=()=>{
@@ -35,7 +36,13 @@ const router = createBrowserRouter([
             },
             {
                 path: '/about',
-                element: <About/>
+                element: <About/>,
+                children: [
+                    {
+                    path:'profile',
+                    element: <Profile/>
+                    }
+                ]
             },   
             {
                 path: '/help',
