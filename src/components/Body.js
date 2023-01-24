@@ -22,6 +22,7 @@ const Body =()=>{
     const OnSearchClick =()=>{
         const filterList= FilterData(inputValue, allRestorentData )
         setFilteredRestorents(filterList)
+
     }
 
     useEffect(()=>{
@@ -31,22 +32,22 @@ const Body =()=>{
 
     async function fetchAPIData(){
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING")
-        const JsonData=  await data.json(); 
+        const JsonData=  await data?.json(); 
         //console.log(JsonData.data?.cards[2]?.data?.data?.cards)
         setFilteredRestorents(JsonData.data?.cards[2]?.data?.data?.cards)
         setAllRestorentData(JsonData.data?.cards[2]?.data?.data?.cards) 
 
     }
-
-    return allRestorentData.length===0 ? ( <Shimmer/>) : (
+    
+    return allRestorentData?.length===0 ? ( <Shimmer/>) : (
         <>
             <div className="search-bar">
-                <input type="text" placeholder="Search your Food/ Restorent" value={inputValue} onChange={OnChangeValue}/>
-                <button type='button' onClick={OnSearchClick} >Search </button>
+                <input type="text" placeholder="Search for restorent and food" value={inputValue} onChange={OnChangeValue}/>
+                <button variant="outlined" type='button' onClick={OnSearchClick} >Search </button>
             </div>
             <div className="card-flex-list">
                 {
-                    filteredRestorents.map((resto)=>{
+                    filteredRestorents?.map((resto)=>{
                         return   <RestorentCard {...resto.data} key={resto.data.id}/>
                     })
                 }
