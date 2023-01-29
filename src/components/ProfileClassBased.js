@@ -66,11 +66,11 @@ class Profile extends React.Component {
                         <button className="button-theme"><Link  to="../contact" ClassName="">Contact Me</Link></button>
                     </div>
                     <div className="col-lg-4">
-                        <div ClassName="card" style={{width:"20rem"}}>
-                            <img ClassName="card-img-top" src={this.state.userInfo.avatar_url} alt="Card image cap"/>
-                            <div ClassName="card-body">
-                                <h4 ClassName="card-title font-theme-color">{this.props.name}</h4>
-                                <p ClassName="card-text">I am a versatile Frontend Developer who collects requirement and perform implementation.</p>
+                        <div className="card" style={{width:"20rem"}}>
+                            <img className="card-img-top" src={this.state.userInfo.avatar_url} alt="Card image cap"/>
+                            <div className="card-body">
+                                <h4 className="card-title font-theme-color">{this.props.name}</h4>
+                                <p className="card-text">I am a versatile Frontend Developer who collects requirement and perform implementation.</p>
                                 <div className="d-flex f-list-none justify-content-around">
                                     <li className="pr-1"><Link><img alt="likdin" src={linkedinIcon}/></Link></li>
                                     <li className="px-1"><Link><img alt="instagramIcon" src={instagramIcon}/></Link></li>
