@@ -60,7 +60,7 @@ a:hover{
 .search-bar input {
     margin: 7px;
     padding: 16px;
-    width: 800px;
+    width: 650px;
     font-size: 18px;
 }
 
@@ -68,8 +68,14 @@ a:hover{
     outline-offset: none;
 }
 
+button:focus{
+    outline: none;
+}
+
 .search-bar button{
-    height: 57px;
+    height: 66px;
+    width: 105px;
+    border-radius: 4px;
 }
 
 .list-item{
@@ -124,7 +130,7 @@ a:hover{
 }
 
 .font-theme-color{
-    color: #ffa700;
+    color: #f8761b;
 }
 
 .star-rating{
@@ -220,4 +226,31 @@ a:hover{
 
 .bg-theme{
     background: #f8761b;
+}
+
+.button-theme{
+    border-radius: 30px;
+    padding: 12px 24px 12px 24px;
+    border: 3px solid white;
+    background-color: #f8761b;
+    cursor: pointer;
+}
+
+.button-theme:hover{
+    background-color: white;
+    cursor: pointer;
+    border: 3px solid #f8761b;
+}
+
+.onlinestatus{
+    width: 299px;
+    background: #4e4d4d;
+    border-radius: 2px;
+    display: flow-root;
+    justify-content: center;
+}
+
+.font-12{
+    font-size: 12px;
+
 }

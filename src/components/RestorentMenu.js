@@ -3,23 +3,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer.js";
 import { restaurantList, IMG_CDN_URL } from "../contants.js";
+import useRestorentMenu from "../utils/useRestorentMenu.js";
 
 const RestorentMenu=()=>{
-    const [RestoMenu, setRestoMenu] = useState(null);
-    console.log("gggg",RestoMenu)
     const {refID} = useParams();
-
-    async function fetchData(){
-        const URLMenu="https://www.swiggy.com/dapi/menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=";
-        const getdata= await fetch(URLMenu + refID)
-        const data = await getdata?.json();
-        setRestoMenu(data)
-        console.log("dddddddddd", data)
-
-    }
-    useEffect(()=>{
-        fetchData();
-    },[])
+    const RestoMenu = useRestorentMenu(refID); //Custom hooks
 
     return !RestoMenu ? (
         <Shimmer />
@@ -48,7 +36,7 @@ const RestorentMenu=()=>{
                                     <span>Rs {item.price/100}</span>
                                     <p className="text-secondary">{item.category}</p>
                                     {/* <p>{item.description}</p> */}
-                                 <button className="btn btn-success">Add to Cart</button>  
+                                 <button className="button-theme px-3">Add to Cart</button>  
                                 </div>
                                 <div className='col-lg-6'>
                                     <img alt="menu-img" style={{ width: "190px", borderRadius:"12px"}} src={IMG_CDN_URL + item.cloudinaryImageId}/>

@@ -1,5 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import linkedinIcon from '../assets/img/linkedin.png'
+import instagramIcon from '../assets/img/instagram.png'
+import facebookIcon from '../assets/img/facebook.png'
+import tweeterIcon from '../assets/img/twitter.png'
 
 class Profile extends React.Component {
     constructor(props){
@@ -43,11 +47,12 @@ class Profile extends React.Component {
                         <span> 27 Years</span>
                         <h3 className='pt-2'>Location:</h3>
                         <span> Sewapuri, Varanasi</span>
-                        <div className="d-flex f-list-none pt-5">
-                            <li className="pr-2">Linkedin</li>
-                            <li className="px-2">Facebook</li>
-                            <li className="px-2">Instagram</li>
-                            <li className="px-2">Tweeter</li>
+                        <h5 className="pt-4"> Follow Me :</h5>
+                        <div className="d-flex f-list-none ">
+                            <li className="pr-2"><Link><img alt="likdin" src={linkedinIcon}/></Link></li>
+                            <li className="px-3"><Link><img alt="instagramIcon" src={instagramIcon}/></Link></li>
+                            <li className="px-3"><Link><img alt="facebookIcon" src={facebookIcon}/></Link></li>
+                            <li className="px-3"><Link><img alt="tweeterIcon" src={tweeterIcon}/></Link></li>
                         </div>
                     </div>
                     <div className="col-lg-4">
@@ -57,20 +62,20 @@ class Profile extends React.Component {
                         <p> I'm Frontend Developer having 3.5+ Year of working Experience.</p>
                         <span>Github Username :  {this.state.userInfo.login}</span>
                         
-                        <h6 className="pb-5 pt-3">Location: {this.state.userInfo.location}</h6>
-                        <Link class="btn btn-primary">Contact Me</Link>
+                        <h6 className="pb-4 pt-3">Location: {this.state.userInfo.location}</h6>
+                        <button className="button-theme"><Link  to="../contact" ClassName="">Contact Me</Link></button>
                     </div>
                     <div className="col-lg-4">
-                        <div class="card" style={{width:"20rem"}}>
-                            <img class="card-img-top" src={this.state.userInfo.avatar_url} alt="Card image cap"/>
-                            <div class="card-body">
-                                <h5 class="card-title">{this.props.name}</h5>
-                                <p class="card-text">I am a versatile Frontend Developer who collects requirement and perform implementation.</p>
-                                <div className="d-flex f-list-none">
-                                    <li className="pr-1"><Link><img alt="likdin" src="./assets/img/linkedin.png"/></Link>Linkedin</li>
-                                    <li className="px-1">Facebook</li>
-                                    <li className="px-1">Instagram</li>
-                                    <li className="px-1">Tweeter</li>
+                        <div ClassName="card" style={{width:"20rem"}}>
+                            <img ClassName="card-img-top" src={this.state.userInfo.avatar_url} alt="Card image cap"/>
+                            <div ClassName="card-body">
+                                <h4 ClassName="card-title font-theme-color">{this.props.name}</h4>
+                                <p ClassName="card-text">I am a versatile Frontend Developer who collects requirement and perform implementation.</p>
+                                <div className="d-flex f-list-none justify-content-around">
+                                    <li className="pr-1"><Link><img alt="likdin" src={linkedinIcon}/></Link></li>
+                                    <li className="px-1"><Link><img alt="instagramIcon" src={instagramIcon}/></Link></li>
+                                    <li className="px-1"><Link><img alt="facebookIcon" src={facebookIcon}/></Link></li>
+                                    <li className="px-1"><Link><img alt="tweeterIcon" src={tweeterIcon}/></Link></li>
                                     
                                 </div>
                             </div>

@@ -2,9 +2,12 @@ import RestorentCard from './RestorentCard.js'
 import { restaurantList, IMG_CDN_URL } from "../contants.js";
 import { useEffect, useState } from 'react';
 import Shimmer from './Shimmer.js';
+import { FilterData } from '../utils/helper'
+import useRestorentCard from '../utils/useRestorentCard.js';
 
 
 const Body =()=>{
+
     const [allRestorentData, setAllRestorentData]= useState([]);
     const [inputValue, setInputValue] = useState("");
     const [filteredRestorents, setFilteredRestorents] = useState([]);
@@ -12,13 +15,7 @@ const Body =()=>{
     const OnChangeValue =(e)=>{
         setInputValue(e.target.value)
     }
-
-    function FilterData(inputValue, filteredRestorents){
-      return filteredRestorents.filter((restorent)=>
-             restorent?.data?.name?.toLowerCase().includes(inputValue?.toLowerCase())
-            
-        );
-    }
+    
     const OnSearchClick =()=>{
         const filterList= FilterData(inputValue, allRestorentData )
         setFilteredRestorents(filterList)
@@ -29,7 +26,7 @@ const Body =()=>{
         fetchAPIData();
     },[])
 
-
+    
     async function fetchAPIData(){
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING")
         const JsonData=  await data?.json(); 
@@ -43,7 +40,7 @@ const Body =()=>{
         <>
             <div className="search-bar">
                 <input type="text" placeholder="Search for restorent and food" value={inputValue} onChange={OnChangeValue}/>
-                <button variant="outlined" type='button' onClick={OnSearchClick} >Search </button>
+                <button variant="outlined" className="button-theme" type='button' onClick={OnSearchClick} >Search </button>
             </div>
             <div className="card-flex-list">
                 {

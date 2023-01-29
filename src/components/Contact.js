@@ -27,7 +27,7 @@ const Contact =() =>{
                         
                         <div className="row ">
                                 <div className="col-lg-4">
-                                    <h3>Burger Palace</h3>
+                                    <h3 className="font-theme-color">Burger Palace</h3>
                                     <article>Visiting our restaurant feels just like paying a visit to your grandpa’s farm… Having a sip of a creamy milkshake, having a bite of a juicy meaty burger… Eating at our place always feels like good old times!</article>
 
                                 </div>
@@ -35,19 +35,19 @@ const Contact =() =>{
                                     <form>
                                         <div className="row">
                                             <div className="col">
-                                            <input type="text" class="form-control" placeholder="Your name"/>
+                                            <input type="text" className="form-control" placeholder="Your name"/>
                                             </div>
                                             <div className="col">
-                                            <input type="text" class="form-control" placeholder="Phone"/>
+                                            <input type="text" className="form-control" placeholder="Phone"/>
                                             </div>
                                             <div className="col">
-                                            <input type="text" class="form-control" placeholder="Email"/>
+                                            <input type="text" className="form-control" placeholder="Email"/>
                                             </div>
                                         </div>
                                         <div className="form-group pt-4">
                                             <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your Message"></textarea>
                                         </div>
-                                        <button type="submit" class="btn btn-primary my-2">Submit</button>
+                                        <button type="submit" className="button-theme my-2">Submit</button>
                                     </form>
                                 </div>  
                         </div>
