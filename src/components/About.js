@@ -37,11 +37,11 @@ class AboutClass extends React.Component {
         return(
             <div>
                 {/* <h1>This is About us page from Class based component</h1> */}
-                <div className="text-center py-3">
-                    <h1 className="profile-text">Profile</h1>
-                    <p>I'm Frontend Developer </p>
+                <div className="text-center py-5">
+                    <h1 className="text-5xl font-bold text-orange-600">Profile</h1>
+                    <p className="text-lg">I'm Frontend Developer </p>
                 </div>
-                <div className="d-flex align-items-center justify-content-center py-4 bg-theme">
+                <div className="py-3 bg-orange-500">
                     <Profile name={"Lawakesh Patel"}/>
                 </div>
             </div>

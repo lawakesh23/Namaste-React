@@ -37,12 +37,12 @@ const Body =()=>{
     }
     
     return allRestorentData?.length===0 ? ( <Shimmer/>) : (
-        <>
-            <div className="search-bar">
-                <input type="text" placeholder="Search for restorent and food" value={inputValue} onChange={OnChangeValue}/>
-                <button variant="outlined" className="button-theme" type='button' onClick={OnSearchClick} >Search </button>
+        <> 
+            <div className="py-5 text-center">
+                <input type="text" className="sm:w-96 w-60 h-10 pl-2 border in-range:border-green-500" placeholder="Search for restorent and food" value={inputValue} onChange={OnChangeValue}/>
+                <button variant="outlined" className=" bg-orange-500  ml-3 p-2 px-4 text-white" type='button' onClick={OnSearchClick} >Search </button>
             </div>
-            <div className="card-flex-list">
+            <div className="grid sm:grid-cols-4 gap-4 grid-cols-1 justify-center align-middle sm:mx-7 w-50  sm:w-100 pb-4">
                 {
                     filteredRestorents?.map((resto)=>{
                         return   <RestorentCard {...resto.data} key={resto.data.id}/>

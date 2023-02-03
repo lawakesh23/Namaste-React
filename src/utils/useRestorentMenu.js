@@ -9,7 +9,6 @@ const useRestorentMenu=(refID)=>{
         const getdata= await fetch(URL_Menu + refID)
         const data = await getdata?.json();
         setRestoMenu(data)
-        console.log("dddddddddd", data)
 
     }
     useEffect(()=>{

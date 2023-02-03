@@ -5,14 +5,14 @@ const RestorentCard=({ name, id, cuisines, area, cloudinaryImageId, costForTwoSt
      return(
          <>
          
-         <div className="restorent-list">
+         <div className="hover:shadow-lg hover:shadow-orange-500 mx-auto">
          <Link to={"./restorent/"+id}>
-             <div className="list-item p-3">
-                 <img alt="resto-logo" className="resto-img" src={IMG_CDN_URL + cloudinaryImageId} />
-                 <h5 className="pt-3">{name}</h5>
-                 <p className="text-secondary">{cuisines.join(", ")}</p>
-                 <div className="card-rating-section">
-                    <div className="star-rating">
+             <div className="p-4">
+                 <img alt="resto-logo" className="" src={IMG_CDN_URL + cloudinaryImageId} />
+                 <h5 className="pt-3  font-bold text-xl">{name}</h5>
+                 <p className="text-base text-gray-600 pb-3 pt-2">{cuisines.join(", ")}</p>
+                 <div className="flex justify-between align-middle pb-3">
+                    <div className="flex bg-green-500 text-white px-2 rounded-sm">
                         <span>★ </span>
                         <div> {avgRating} </div>
                     </div>
@@ -22,10 +22,10 @@ const RestorentCard=({ name, id, cuisines, area, cloudinaryImageId, costForTwoSt
                     <div>{costForTwoString}</div>
                  </div>
               
-                 <span className="font-13"> Address : {area} </span>
-                 <div className="Resto-offer">
+                 <span className="text-sm"> Address : {area} </span>
+                 <div className="border-t pt-2 mt-2 ">
                     
-                    <div>{aggregatedDiscountInfo.shortDescriptionList[0].meta}</div>
+                    <div className="animate-pulse font-medium text-orange-700">{aggregatedDiscountInfo.shortDescriptionList[0].meta}</div>
                  </div>
      
              </div>
