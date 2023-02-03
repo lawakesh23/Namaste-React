@@ -37,10 +37,10 @@ const RestorentMenu=()=>{
 
         async function fetchData(){ 
             const getdata= await fetch(URL_Menu + refID)
-            const data1 = await getdata?.json();
-            setRestoMenu(Object.values(data1?.data?.menu?.items))
-            setFilterMenu(Object.values(data1?.data?.menu?.items))
-            setRestodetails(data1)
+            const menuData = await getdata?.json();
+            setRestoMenu(Object.values(menuData?.data?.menu?.items))
+            setFilterMenu(Object.values(menuData?.data?.menu?.items))
+            setRestodetails(menuData)
  
         }
 
@@ -63,10 +63,10 @@ const RestorentMenu=()=>{
                         <p className="px-2">{restoDetails?.data?.sla?.lastMileDistanceString}</p>
                     </div>    
                 </div>
-                <div className="text-white border-2 p-5 m-4 relative">
-                    <span className="absolute -top-4 -left-3 bg-black font-medium p-2 text-md">OFFER</span>
+                <div className="text-white border p-5 m-4 relative">
+                    <span className="absolute -top-6 -left-5 bg-black font-medium p-2 text-xl">OFFER</span>
                     <div> 50% off up to ₹100 | Use code TRYNEW</div>
-                    <div>{restoMenu?.data?.aggregatedDiscountInfo.descriptionList[0].meta}</div>
+                    <div>{restoDetails?.data?.aggregatedDiscountInfo.descriptionList[0].meta}</div>
                 </div> 
             </div>
             <div className="py-3 text-center">

@@ -3,7 +3,11 @@ import linkedinIcon from '../assets/img/linkedin.png'
 import instagramIcon from '../assets/img/instagram.png'
 import facebookIcon from '../assets/img/facebook.png'
 import tweeterIcon from '../assets/img/twitter.png'
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
+
 const Footer =()=>{
+    const {user}= useContext(UserContext);
     return(
         <>
             <div className="Footer  bg-gray-700 py-3 pt-5">
@@ -14,6 +18,7 @@ const Footer =()=>{
                     <div className="sm:p-0 py-6 sm:text-center text-center sm:border-none border-y">
                      Made With 🧡 by Lawakesh !! ©  2023
                     </div>
+                    <span>{user.name}</span>
                     <div className="sm:p-0 py-5 flex justify-center">
                             <ul className="flex">
                             <li className="pr-2"><Link><img alt="likdin" style={{width:"22px"}} src={linkedinIcon}/></Link></li>

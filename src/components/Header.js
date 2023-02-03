@@ -1,11 +1,13 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {Link} from 'react-router-dom'
+import UserContext from "../utils/UserContext";
 
 
 const logInUser=()=>{
     return false;
 }
+
 
 
 const Title = ()=>(
@@ -16,20 +18,22 @@ const Title = ()=>(
 
 const Header =()=>{
     const [isLogIn, setisLogIn] = useState(true);
+    const {user}= useContext(UserContext);
    return(
     <div className="relative ">
         <div className="header sm:flex block justify-between items-center text-center border">
             <Title className=""/>
             <div className="nav-bar flex justify-center">
                 <ul className="flex font-bold ">
-                        <li className="sm:px-4 px-1  hover:text-orange-400">
+                        <li className="sm:px-4 px-1 hover:text-orange-400">
                             <Link to='./'><div className="">Home</div> </Link>
                         </li>
-
-                        <li className="sm:px-4 px-1  hover:text-orange-600">
+                        <li className="sm:px-4 px-1 hover:text-orange-600">
                             <Link to ="./offers"><div className="">Offers <sup className="text-orange-600 animate-pulse"> <b>New</b></sup></div> </Link>
                         </li>
-
+                        <li className="sm:px-4 px-1  hover:text-orange-600">
+                            <Link to='./instaMart'><div className="">InstaMart</div></Link>
+                        </li> 
                         <li className="sm:px-4 px-1   hover:text-orange-600">
                             <Link to='./help'><div className="">Help</div> </Link>
                         </li>                                
@@ -42,7 +46,7 @@ const Header =()=>{
                         <li className="sm:px-4 px-1   hover:text-orange-600">
                             <Link to='./cart'><div className="">Cart</div></Link>
                         </li>
-
+                        <span>{user.name}</span>
                         <li className="sm:px-4 px-1   hover:text-orange-600">
                             <Link to='./login'>
                                 {(isLogIn ? <button variant="contained" onClick={()=>setisLogIn(false)}> Sign In </button> :  <button variant="contained" onClick={()=>setisLogIn(true)}>Signout</button>)

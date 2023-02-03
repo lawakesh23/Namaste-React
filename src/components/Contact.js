@@ -12,17 +12,17 @@ const Contact =() =>{
 
     return(
             <>  
-                <div className="bg-gray-300">
+                <div className="bg-gray-200">
                     <div className="container py-4 mx-auto">
                         <div className="grid grid-cols-2">
                             <div className="">
                                 <h3 className="text-3xl font-medium">Contact Us</h3>
                                 <p className="py-2">101 Cyril Magnin St, San Francisco, CA 94102, USA</p>
                                 <span>TEL: </span> <span className="font-theme-color">1.555.836.6767</span>
-                                <p className="py-2">duval@demolink.org</p>
+                                <p className="py-2 text-orange-600">duval@demolink.org</p>
 
                                 <h5 className="text-xl">Want to join the team?</h5>
-                                <Link className="font-theme-color py-3">Apply today</Link>
+                                <Link className="text-orange-600 py-3">Apply today</Link>
                             </div>
                             <div className="">
                                 <h3 className="text-3xl font-medium pb-3">Opening Hours</h3>
@@ -30,7 +30,7 @@ const Contact =() =>{
                                 <p>Sa-Su 15:00-00:00</p>
 
                                 <h5 className="pt-3 text-xl">Call us at:</h5>
-                                <Link className="font-theme-color">555.329.0632</Link>
+                                <Link className="text-orange-600">555.329.0632</Link>
                             </div>  
                         </div>
                         <hr className=" my-5"/>
@@ -70,7 +70,7 @@ const Contact =() =>{
                                             onChange={formik.handleChange}
                                             value={formik.values.email}
                                         />
-                                        <button type="submit">Submit</button>
+                                        <button className="w-20 bg-orange-400 rounded-sm" type="submit">Submit</button>
                                     </form>                                 
                                 </div>  
                         </div>

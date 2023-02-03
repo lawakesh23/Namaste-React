@@ -4,6 +4,8 @@ import linkedinIcon from '../assets/img/linkedin.png'
 import instagramIcon from '../assets/img/instagram.png'
 import facebookIcon from '../assets/img/facebook.png'
 import tweeterIcon from '../assets/img/twitter.png'
+import { Component } from 'react';
+import UserContext from '../utils/UserContext';
 
 class Profile extends React.Component {
     constructor(props){
@@ -34,6 +36,7 @@ class Profile extends React.Component {
     componentWillUnmount(){
         console.log("Inside - Child ComponenetWillUnmount")
     }
+   
     render(){
         console.log("Inside - child Render")
         return(
@@ -66,6 +69,11 @@ class Profile extends React.Component {
                         
                         <h6 className="pb-4 pt-3">Location: {this.state.userInfo.location}</h6>
                         <button className="w-40 h-10 rounded-full bg-white hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 "><Link  to="../contact" ClassName="">Contact Me</Link></button>
+                        <UserContext.Consumer>
+                            {({user})=>(
+                                <h1 className="py-3">{user.name}</h1>
+                            )}
+                        </UserContext.Consumer>
                     </div>
                     <div className="mx-auto flex justify-center">
                         <div className="rounded-md bg-white" style={{width:"20rem"}}>
