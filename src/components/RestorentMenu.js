@@ -4,6 +4,11 @@ import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer.js";
 import { restaurantList, URL_Menu, IMG_CDN_URL } from "../contants.js";
 import useRestorentMenu from "../utils/useRestorentMenu.js";
+import { addItem } from "../utils/cartSlice.js";
+import { useDispatch } from "react-redux";
+import store from "../utils/store.js";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const RestorentMenu=()=>{
     const {refID} = useParams();
@@ -12,6 +17,8 @@ const RestorentMenu=()=>{
     const [filterMenu, setFilterMenu] = useState([]);
     const [inputData, setInputData] = useState("")
     const [restoDetails, setRestodetails] =useState([])
+    const [countfilterNo, setCountFilerNo]= useState([])
+    const dispatch= useDispatch();
     
         const InputDataOnchange =(e)=>{
             const searchData = e.target.value;
@@ -22,7 +29,8 @@ const RestorentMenu=()=>{
             const filteredData = filterMenuData(inputData, restoMenu);
             setFilterMenu( filteredData); 
             console.log("New After clicked filteredData...", filteredData)
-            console.log("After clicked filterMenu", filterMenu)                
+            console.log("After clicked filterMenu", filterMenu) 
+            setCountFilerNo(filteredData)               
         }
         
         function filterMenuData(inputData, restoMenu ){
@@ -44,6 +52,11 @@ const RestorentMenu=()=>{
  
         }
 
+     const addFoodItem=(item)=>{
+        dispatch(addItem(item))
+
+     }   
+    const countAdded = useSelector((store)=> store.cart.items)
 
     return !restoMenu ? (
         <Shimmer/>
@@ -70,10 +83,22 @@ const RestorentMenu=()=>{
                 </div> 
             </div>
             <div className="py-3 text-center">
-                <input type="text" className="pl-2 border w-64 h-10" placeholder="Search food" value={inputData} onChange={InputDataOnchange}/>
-                <button className=" ml-2 bg-orange-400 w-20 h-10" onClick={MenuBtnSearch}>Search </button>
+                
+                <input type="text" className="pl-2 border sm:w-64 w-48 h-10" placeholder="Search food" value={inputData} onChange={InputDataOnchange}/>
+                <button className="ml-2 bg-orange-400 w-20 h-10" onClick={MenuBtnSearch}>Search </button>
             </div>
-            <div className="resto-menuList flex"> 
+            <div className="flex justify-around py-1 shadow">
+                <div className="text-md font-bold">Total Menu Items - <span className="font-bold bg-green-700 text-white px-2 rounded">{restoMenu.length}</span></div>
+                <div className="text-md font-bold">Total filter Items - <span className="font-bold bg-green-700 text-white px-2 rounded">{countfilterNo.length}</span></div>
+            </div> 
+            <Link to='./cart'>
+                <div className="relative">
+                    <div className="p-3 bg-orange-500 fixed top-50 right-0 rounded-l-full">
+                        <div>Items added -<span className="font-bold px-2">{countAdded.length}</span></div>
+                    </div> 
+                </div>
+            </Link>
+            <div className="resto-menuList flex overflow-y-scroll scrollbar min-w-full flex-none px-4 sm:px-6 md:px-0 overflow-hidden lg:overflow-auto scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar:bg-transparent scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300 scrollbar-track:!rounded dark:scrollbar-track:!bg-slate-500/[0.16] dark:scrollbar-thumb:!bg-slate-500/50 max-h-96 lg:supports-scrollbars:pr-2 lg:max-h-full"> 
                 <div className="grid sm:grid-cols-3 grid-cols-1 p-2">
                     {restoMenu && filterMenu.map((item,i) => {
                         return ( 
@@ -84,7 +109,7 @@ const RestorentMenu=()=>{
                                     <span className="py-2">Rs {item.price/100}</span>
                                     <p className="text-gray-500 pb-2">{item.category}</p>
                                     {item.isVeg ? <p className="text-sm">Veg</p>  :<p className="text-sm">Non-Veg</p>}
-                                 <button className=" mt-2 bg-orange-400 text-white px-3 p-2 rounded-full">Add to Cart</button>  
+                                 <button className="text-sm border-2 mt-2 bg-orange-400 text-white px-3 p-2 rounded-full hover:bg-white hover:text-black hover:border-2" onClick={()=>addFoodItem(item)}>Add to Cart</button>  
                                 </div>
                                 <div className='flex align-center justify-center'>
                                     <img className="px-2" alt="menu-img" style={{ width: "190px", borderRadius:"12px"}} src={IMG_CDN_URL + item.cloudinaryImageId}/>

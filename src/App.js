@@ -17,18 +17,21 @@ import InstaMart from './components/InstaMart.js'
 import { createBrowserRouter, RouterProvider, Outlet, useSearchParams } from "react-router-dom"
 import { lazy, Suspense, useState } from 'react'
 import UserContext from './utils/UserContext.js'
+import {Provider} from 'react-redux'
+import store from './utils/store';
 const About = lazy(()=> import('./components/About.js'));
+
 
 
 const AppLayout=()=>{
  
     const [ user, setUser]= useState({ 
-        name:"Lawakesh Patel",
+        name:"",
         email: "lawakesh23456@gmail.com"
     });
-    
+
     return(
-        <>
+        <Provider store={store}>
             <UserContext.Provider 
                 value={{
                     user:user,
@@ -40,7 +43,7 @@ const AppLayout=()=>{
                 <OnlineStatus/>
                 <Footer/>
             </UserContext.Provider>
-        </>
+        </Provider>
     );
 }
 
