@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { useSelector } from "react-redux";
 import {Link} from 'react-router-dom'
 import UserContext from "../utils/UserContext";
+import OnlineStatus from "./OnlineStatus";
 
 
 const logInUser=()=>{
@@ -13,7 +14,7 @@ const logInUser=()=>{
 
 const Title = ()=>(
     // <h1 className="title" id="main"> Namaste React</h1>
-    <Link to="./" className="flex justify-center"><img  src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_96,h_96/portal/c/logo_2022.png"/></Link>
+    <Link to="./" className="flex justify-center"><img  data-testid="logo" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_96,h_96/portal/c/logo_2022.png"/></Link>
 );
 
 
@@ -27,6 +28,7 @@ const Header =()=>{
     <div className="relative ">
         <div className="header sm:flex block justify-between items-center text-center border">
             <Title className=""/>
+            <OnlineStatus/>
             <div className="nav-bar flex justify-center">
                 <ul className="flex font-bold ">
                         <li className="sm:px-4 px-1 hover:text-orange-400">
@@ -48,7 +50,7 @@ const Header =()=>{
                         <Link to="./contact"><div className="">Contact</div></Link> 
                         </li>
                         <li className="sm:px-4 px-1   hover:text-orange-600">
-                            <Link to='./cart'><div className="">Cart <span className="bg-green-700 text-white px-2 rounded">{cartItem.length}</span> Items</div></Link>
+                            <Link to='./cart'><div className="" >Cart <span className="bg-green-700 text-white px-2 rounded" data-testid="cart">{cartItem.length}</span> Items</div></Link>
                         </li>
                         <span>{user.name}</span>
                         <li className="sm:px-4 px-1   hover:text-orange-600">

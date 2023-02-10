@@ -78,14 +78,14 @@ const RestorentMenu=()=>{
                 </div>
                 <div className="text-white border p-5 m-4 relative">
                     <span className="absolute -top-6 -left-5 bg-black font-medium p-2 text-xl">OFFER</span>
-                    <div> 50% off up to ₹100 | Use code TRYNEW</div>
+                    <div> 50% off up to ₹100 | Use code WELCOME</div>
                     <div>{restoDetails?.data?.aggregatedDiscountInfo.descriptionList[0].meta}</div>
                 </div> 
             </div>
             <div className="py-3 text-center">
                 
                 <input type="text" className="pl-2 border sm:w-64 w-48 h-10" placeholder="Search food" value={inputData} onChange={InputDataOnchange}/>
-                <button className="ml-2 bg-orange-400 w-20 h-10" onClick={MenuBtnSearch}>Search </button>
+                <button  className="ml-2 bg-orange-400 w-20 h-10" onClick={MenuBtnSearch}>Search </button>
             </div>
             <div className="flex justify-around py-1 shadow">
                 <div className="text-md font-bold">Total Menu Items - <span className="font-bold bg-green-700 text-white px-2 rounded">{restoMenu.length}</span></div>
@@ -99,7 +99,7 @@ const RestorentMenu=()=>{
                 </div>
             </Link>
             <div className="resto-menuList flex overflow-y-scroll scrollbar min-w-full flex-none px-4 sm:px-6 md:px-0 overflow-hidden lg:overflow-auto scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar:bg-transparent scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300 scrollbar-track:!rounded dark:scrollbar-track:!bg-slate-500/[0.16] dark:scrollbar-thumb:!bg-slate-500/50 max-h-96 lg:supports-scrollbars:pr-2 lg:max-h-full"> 
-                <div className="grid sm:grid-cols-3 grid-cols-1 p-2">
+                <div className="grid sm:grid-cols-3 grid-cols-1 p-2" data-testid="menuList">
                     {restoMenu && filterMenu.map((item,i) => {
                         return ( 
                             <div key={i} className="flex p-3 m-2 border-2 justify-between hover:shadow-lg hover:shadow-orange-500"> 
@@ -109,7 +109,7 @@ const RestorentMenu=()=>{
                                     <span className="py-2">Rs {item.price/100}</span>
                                     <p className="text-gray-500 pb-2">{item.category}</p>
                                     {item.isVeg ? <p className="text-sm">Veg</p>  :<p className="text-sm">Non-Veg</p>}
-                                 <button className="text-sm border-2 mt-2 bg-orange-400 text-white px-3 p-2 rounded-full hover:bg-white hover:text-black hover:border-2" onClick={()=>addFoodItem(item)}>Add to Cart</button>  
+                                 <button data-testid="addItem" className="text-sm border-2 mt-2 bg-orange-400 text-white px-3 p-2 rounded-full hover:bg-white hover:text-black hover:border-2" onClick={()=>addFoodItem(item)}>Add to Cart</button>  
                                 </div>
                                 <div className='flex align-center justify-center'>
                                     <img className="px-2" alt="menu-img" style={{ width: "190px", borderRadius:"12px"}} src={IMG_CDN_URL + item.cloudinaryImageId}/>

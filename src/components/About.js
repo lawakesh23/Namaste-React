@@ -41,7 +41,7 @@ class AboutClass extends React.Component {
                     <h1 className="text-5xl font-bold text-orange-600">Profile</h1>
                     <p className="text-lg">I'm Frontend Developer </p>
                 </div>
-                <div className="py-3 bg-orange-500">
+                <div className="py-3 bg-gradient-to-r from-cyan-500 to-orange-500">
                     <Profile name={"Lawakesh Patel"}/>
                 </div>
             </div>
