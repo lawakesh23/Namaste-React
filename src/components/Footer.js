@@ -13,7 +13,7 @@ const Footer =()=>{
             <div className="Footer  bg-gray-700 py-3 pt-5">
                 <div className="text-white container mx-auto sm:flex block sm:justify-between justify-center items-center ">
                     <div className="sm:p-0 pb-4 flex justify-center">
-                        <img alt="footerimage" className="sm:text-center text-center" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_284/Logo_f5xzza" />
+                        <img alt="footerimage" className="sm:text-center text-center rounded-full w-48" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrXZYHpGaHJ2LysDWPJE-2L-i3r7BXNFasNFWhdFbKGULdVZX2uGtoVhyozjLW2g3jHqc&usqp=CAU" />
                     </div>
                     <div className="sm:p-0 py-6 sm:text-center text-center sm:border-none border-y">
                      Made With 🧡 by Lawakesh !! ©  2023

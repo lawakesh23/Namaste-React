@@ -40,7 +40,7 @@ const AppLayout=()=>{
               >
                 <Header />
                 <Outlet/>
-                <OnlineStatus/>
+                
                 <Footer/>
             </UserContext.Provider>
         </Provider>
