@@ -8,6 +8,7 @@ const useRestorentMenu=(refID)=>{
     async function fetchData(){ 
         const getdata= await fetch(URL_Menu + refID)
         const data = await getdata?.json();
+        console.log("datafrom userRestomen", data)
         setRestoMenu(data)
 
     }

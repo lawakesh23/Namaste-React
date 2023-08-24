@@ -33,9 +33,9 @@ const Body =()=>{
     async function fetchAPIData(){
         const data = await fetch(restaurantList)
         const JsonData=  await data?.json(); 
-        //console.log(JsonData.data?.cards[2]?.data?.data?.cards)
-        setFilteredRestorents(JsonData.data?.cards[2]?.data?.data?.cards)
-        setAllRestorentData(JsonData.data?.cards[2]?.data?.data?.cards) 
+        console.log(JsonData.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilteredRestorents(JsonData.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setAllRestorentData(JsonData.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants) 
 
     }
     
@@ -47,12 +47,12 @@ const Body =()=>{
             </div>
             {/* <input className="border" value={user.name} onChange={(e)=>setUser({...user, name:e.target.value})} placeholder="Name"></input>  */}
             <div className="mx-11 border-b mb-2">
-                <div className="font-bold text-2xl">{allRestorentData.length} restaurants</div>
+                <div className="font-bold text-2xl">{allRestorentData?.length} restaurants</div>
             </div>    
             <div className="grid sm:grid-cols-4 gap-4 grid-cols-1 justify-center align-middle sm:mx-7 w-50  sm:w-100 pb-4" data-testid="res-list">
                 {
                     filteredRestorents?.map((resto)=>{
-                        return   <RestorentCard {...resto.data} key={resto.data.id}/>
+                        return   <RestorentCard {...resto.info} key={resto.info.id}/>
                     })
                 }
             </div>

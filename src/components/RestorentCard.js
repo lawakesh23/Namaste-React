@@ -1,7 +1,7 @@
 import { restaurantList, IMG_CDN_URL } from "../contants.js";
 import { Link } from "react-router-dom";
-const RestorentCard=({ name, id, cuisines, area, cloudinaryImageId, costForTwoString, slaString, avgRating, aggregatedDiscountInfo })=>{
-    // const { name, cuisines, area  } = restorent.data;
+const RestorentCard=({ name, id, cuisines, area, cloudinaryImageId, locality, costForTwo, sla, avgRating, aggregatedDiscountInfoV3 })=>{
+    // const { name, cuisines, area  } = restorent.data;,
      return(
          <>
          
@@ -17,15 +17,15 @@ const RestorentCard=({ name, id, cuisines, area, cloudinaryImageId, costForTwoSt
                         <div> {avgRating} </div>
                     </div>
                     <div>|</div>
-                    <div>{slaString}</div>
+                    <div>{sla?.slaString}</div>
                     <div>|</div>
-                    <div>{costForTwoString}</div>
+                    <div>{costForTwo}</div>
                  </div>
               
-                 <span className="text-sm"> Address : {area} </span>
+                 <span className="text-sm"> Address : {locality} </span>
                  <div className="border-t pt-2 mt-2 ">
                     
-                    <div className="animate-pulse font-medium text-orange-700">{aggregatedDiscountInfo.shortDescriptionList[0].meta}</div>
+                    <div className="animate-pulse font-medium text-orange-700">{aggregatedDiscountInfoV3?.header}</div>
                  </div>
      
              </div>

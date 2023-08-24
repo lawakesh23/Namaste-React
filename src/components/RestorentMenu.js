@@ -46,9 +46,11 @@ const RestorentMenu=()=>{
         async function fetchData(){ 
             const getdata= await fetch(URL_Menu + refID)
             const menuData = await getdata?.json();
+            console.log("MenuData..",menuData)
             setRestoMenu(Object.values(menuData?.data?.menu?.items))
             setFilterMenu(Object.values(menuData?.data?.menu?.items))
             setRestodetails(menuData)
+            console.log("mydata", menuData)
  
         }
 
